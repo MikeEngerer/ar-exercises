@@ -13,4 +13,11 @@ puts "----------"
 @store_name = gets.chomp
 
 def new_store(input)
-	
+	Store.create(name: input)
+end
+
+@new_store = new_store(@store_name)
+
+@new_store.errors.messages.each do |key, error|
+	puts "#{key}: #{error[0]}"
+end
